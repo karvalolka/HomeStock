@@ -1,18 +1,20 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\TypeItemController;
+use App\Http\Controllers\ItemController;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::prefix('type-items')->group(function () {
+    Route::get('/type-items', [TypeItemController::class, 'index']);
+});
+
+Route::prefix('items')->group(function () {
+   Route::get('/', [ItemController::class, 'index'])->name('items.index');
+   Route::get('/create', [ItemController::class, 'create'])->name('items.create');
+   Route::post('/', [ItemController::class, 'store'])->name('items.store');
+   Route::get('/{id}', [ItemController::class, 'show']);
 });
