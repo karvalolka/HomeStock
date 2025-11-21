@@ -18,6 +18,11 @@ class TypeItemController extends Controller
 
     }
 
+    public function edit($id)
+    {
+
+    }
+
     public function update(Request $request, $id)
     {
 
@@ -28,8 +33,10 @@ class TypeItemController extends Controller
 
     }
 
-    public function delete($id)
+    public function destroy($id)
     {
-
+        $tItem = TypeItem::findOrFail($id);
+        $tItem->delete();
+        return redirect()->back();
     }
 }
