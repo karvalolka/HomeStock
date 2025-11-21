@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('description')->comment('описание')->nullable();
             $table->enum('season', ['winter', 'summer', 'off-season', 'demi-season'])->comment('сезон')->default('off-season');
             $table->enum('type', ['component', 'object'])->comment('тип предмета')->default('object');
+            $table->float('price')->comment('цена покупки')->nullable();
             $table->timestamps();
         });
     }
