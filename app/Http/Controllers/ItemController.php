@@ -46,25 +46,25 @@ class ItemController extends Controller
     }
 
     public function update(Request $request, $id)
-        {
-            $validatedData = $request->validate([
-                'name' => 'required|string|max:255',
-                'image_path' => 'nullable|string|max:255',
-                'type_item_id' => 'required|integer|exists:type_items,id',
-                'setting' => 'nullable|string|max:255',
-                'description' => 'nullable|string',
-                'season' => 'required|in:winter,summer,off-season,demi-season',
-                'type' => 'required|in:component,object',
-                'price' => 'nullable|numeric|min:0',
-            ]);
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'image_path' => 'nullable|string|max:255',
+            'type_item_id' => 'required|integer|exists:type_items,id',
+            'setting' => 'nullable|string|max:255',
+            'description' => 'nullable|string',
+            'season' => 'required|in:winter,summer,off-season,demi-season',
+            'type' => 'required|in:component,object',
+            'price' => 'nullable|numeric|min:0',
+        ]);
 
-            $item = Item::findOrFail($id);
-            $item->update($validatedData);
+        $item = Item::findOrFail($id);
+        $item->update($validatedData);
 
-            $item->save();
+        $item->save();
 
-            return redirect()->route('items.show', $item->id);
-        }
+        return redirect()->route('items.show', $item->id);
+    }
 
     public function show(string $id)
     {
