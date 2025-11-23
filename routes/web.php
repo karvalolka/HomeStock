@@ -8,8 +8,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('type-items')->group(function () {
-    Route::get('/type-items', [TypeItemController::class, 'index']);
+Route::prefix('type-items')->name('type-items.')->group(function () {
+    Route::get('/', [TypeItemController::class, 'index'])->name('index');
+    Route::get('/create', [ItemController::class, 'create'])->name('create');
+    Route::post('/', [TypeItemController::class, 'store'])->name('store');
+    Route::get('/{id}', [TypeItemController::class, 'show'])->name('show');
+    Route::get('/{id}/edit', [TypeItemController::class, 'edit'])->name('edit');
+    Route::put('/{id}', [TypeItemController::class, 'update'])->name('update');
+    Route::delete('/{id}', [TypeItemController::class, 'destroy'])->name('destroy');
 });
 
 Route::prefix('items')->name('items.')->group(function () {
