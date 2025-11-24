@@ -14,7 +14,7 @@ Route::prefix('type-items')->name('type-items.')->group(function () {
     Route::post('/', [TypeItemController::class, 'store'])->name('store');
     Route::get('/{id}', [TypeItemController::class, 'show'])->name('show');
     Route::get('/{id}/edit', [TypeItemController::class, 'edit'])->name('edit');
-    Route::put('/{id}', [TypeItemController::class, 'update'])->name('update');
+    Route::patch('/{id}', [TypeItemController::class, 'update'])->name('update');
     Route::delete('/{id}', [TypeItemController::class, 'destroy'])->name('destroy');
 });
 
@@ -24,6 +24,10 @@ Route::prefix('items')->name('items.')->group(function () {
    Route::post('/', [ItemController::class, 'store'])->name('store');
    Route::get('/{id}', [ItemController::class, 'show'])->name('show');
    Route::get('/{id}/edit', [ItemController::class, 'edit'])->name('edit');
-   Route::put('/{id}', [ItemController::class, 'update'])->name('update');
+   Route::patch('/{id}', [ItemController::class, 'update'])->name('update');
    Route::delete('/{id}', [ItemController::class, 'destroy'])->name('destroy');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
