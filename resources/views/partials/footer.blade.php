@@ -78,13 +78,22 @@
                             Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                         </p>
                     </div>
+                    <div>
+                        <p>
+                            version 0.1.0
+                        </p>
+                    </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="footer-menu f-right">
                         <ul>
                             <li><a href="#">Terms of use</a></li>
                             <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li>
+                                <a href="https://t.me/ChiL0VEk" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-telegram"></i> Telegram
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
