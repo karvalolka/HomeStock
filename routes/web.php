@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TypeItemController;
-use App\Http\Controllers\ItemController;
+use App\Http\Controllers\{TypeItemController, ItemController, HomeController, IndexController};
 
 Route::get('/', function () {
     return view('welcome');
@@ -10,7 +9,7 @@ Route::get('/', function () {
 
 Route::prefix('type-items')->name('type-items.')->group(function () {
     Route::get('/', [TypeItemController::class, 'index'])->name('index');
-    Route::get('/create', [ItemController::class, 'create'])->name('create');
+    Route::get('/create', [TypeItemController::class, 'create'])->name('create');
     Route::post('/', [TypeItemController::class, 'store'])->name('store');
     Route::get('/{id}', [TypeItemController::class, 'show'])->name('show');
     Route::get('/{id}/edit', [TypeItemController::class, 'edit'])->name('edit');
@@ -30,4 +29,5 @@ Route::prefix('items')->name('items.')->group(function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/index', [IndexController::class, 'index'])->name('index');

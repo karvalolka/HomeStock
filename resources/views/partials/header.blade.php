@@ -21,6 +21,24 @@
                 </div>
             </div>
         </div>
+        <!-- Navigation Bar -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <a href="{{ route('index') }}" class="btn btn-outline-primary btn-sm">
+                    <i class="fas fa-home me-1"></i> На главную
+                </a>
+            </div>
+            <div>
+                <a href="{{ route('logout') }}" 
+                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                   class="btn btn-outline-danger btn-sm">
+                    <i class="fas fa-sign-out-alt me-1"></i> Выйти
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </div>
+        </div>
         <div class="header-mid d-none d-md-block">
             <div class="container">
                 <div class="row d-flex align-items-center">
